@@ -1,5 +1,6 @@
 package com.example.capturaimatge;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.util.Size;
 import android.view.OrientationEventListener;
@@ -8,6 +9,7 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.camera.core.CameraSelector;
 import androidx.camera.core.ImageAnalysis;
 import androidx.camera.core.ImageProxy;
@@ -21,12 +23,13 @@ import com.google.common.util.concurrent.ListenableFuture;
 
 import java.util.concurrent.ExecutionException;
 
-public class CameraActivity {
+public class CameraActivity extends AppCompatActivity {
     private PreviewView previewView;
     private ListenableFuture<ProcessCameraProvider> cameraProviderFuture;
     private TextView textView;
 
-    /*@Override
+    @SuppressLint("MissingInflatedId")
+    @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_camera);
@@ -69,5 +72,5 @@ public class CameraActivity {
         preview.setSurfaceProvider(previewView.createSurfaceProvider());
         cameraProvider.bindToLifecycle((LifecycleOwner)this, cameraSelector,
                 imageAnalysis, preview);
-    }*/
+    }
 }

@@ -18,12 +18,13 @@ import androidx.core.content.ContextCompat;
 
 public class MainActivity extends AppCompatActivity {
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Button button = findViewById(R.id.button);
+        Button button = findViewById(R.id.enableCamera);
 
         button.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
@@ -42,11 +43,11 @@ public class MainActivity extends AppCompatActivity {
         ) == PackageManager.PERMISSION_GRANTED;
     }
     private void requestPermission() {
-        /*ActivityCompat.requestPermissions(
+        ActivityCompat.requestPermissions(
                 this,
                 CAMERA_PERMISSION,
                 CAMERA_REQUEST_CODE
-        );*/
+        );
     }
     private void enableCamera() {
         Intent intent = new Intent(this, CameraActivity.class);

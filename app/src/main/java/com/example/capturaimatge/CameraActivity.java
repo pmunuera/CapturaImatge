@@ -28,7 +28,6 @@ public class CameraActivity extends AppCompatActivity {
     private ListenableFuture<ProcessCameraProvider> cameraProviderFuture;
     private TextView textView;
 
-    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -47,8 +46,9 @@ public class CameraActivity extends AppCompatActivity {
                 }
             }
         }, ContextCompat.getMainExecutor(this));
-
     }
+
+
     private void bindImageAnalysis(@NonNull ProcessCameraProvider cameraProvider) {
         ImageAnalysis imageAnalysis =
                 new ImageAnalysis.Builder().setTargetResolution(new Size(1280, 720))
